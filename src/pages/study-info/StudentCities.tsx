@@ -1,0 +1,1 @@
+export { StudentCities as default } from './HigherEducation';

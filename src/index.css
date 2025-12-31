@@ -1,0 +1,124 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 210 40% 98%;
+    --foreground: 215 25% 15%;
+    --card: 0 0% 100%;
+    --card-foreground: 215 25% 15%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 215 25% 15%;
+    --primary: 210 75% 35%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 210 100% 96%;
+    --secondary-foreground: 210 75% 35%;
+    --muted: 210 40% 96%;
+    --muted-foreground: 215 15% 50%;
+    --accent: 43 100% 68%;
+    --accent-foreground: 215 25% 15%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 210 30% 90%;
+    --input: 210 30% 90%;
+    --ring: 210 75% 35%;
+    --radius: 0.75rem;
+    --hero-gradient-start: 210 100% 96%;
+    --hero-gradient-end: 210 80% 92%;
+    --card-hover-shadow: 210 75% 35% / 0.1;
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .dark {
+    --background: 215 28% 12%;
+    --foreground: 210 40% 98%;
+    --card: 215 25% 16%;
+    --card-foreground: 210 40% 98%;
+    --popover: 215 25% 16%;
+    --popover-foreground: 210 40% 98%;
+    --primary: 210 100% 65%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 215 25% 20%;
+    --secondary-foreground: 210 40% 98%;
+    --muted: 215 25% 20%;
+    --muted-foreground: 215 15% 60%;
+    --accent: 43 100% 60%;
+    --accent-foreground: 215 25% 15%;
+    --destructive: 0 62% 50%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 215 25% 24%;
+    --input: 215 25% 24%;
+    --ring: 210 100% 65%;
+  }
+}
+
+.container-app {
+  @apply mx-auto w-full px-4 sm:px-6 md:px-8 lg:px-10 xl:px-12;
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Inter', sans-serif;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+@layer components {
+  .btn {
+    @apply inline-flex items-center justify-center rounded-lg px-4 py-2 text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50;
+  }
+
+  .btn-primary {
+    @apply bg-primary text-primary-foreground hover:bg-primary/90;
+  }
+
+  .btn-secondary {
+    @apply bg-secondary text-secondary-foreground hover:bg-secondary/80;
+  }
+
+  .card-hover {
+    @apply transition-all duration-300 hover:shadow-lg hover:scale-105;
+  }
+
+  /* Responsive hero section improvements */
+  .hero-responsive {
+    @apply min-h-[500px] sm:min-h-[600px] lg:min-h-[700px];
+  }
+
+  /* Mobile-first button styles */
+  .btn-mobile {
+    @apply w-full sm:w-auto px-6 sm:px-8 py-3 text-center;
+  }
+
+  /* Floating animation for hero elements */
+  @keyframes float {
+    0%, 100% {
+      transform: translateY(0px);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
+  }
+
+  .animate-float {
+    animation: float 3s ease-in-out infinite;
+  }
+
+  /* Responsive text scaling */
+  .text-responsive-xl {
+    @apply text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl;
+  }
+
+  .text-responsive-lg {
+    @apply text-base sm:text-lg;
+  }
+}

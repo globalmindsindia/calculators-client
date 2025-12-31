@@ -1,0 +1,1 @@
+export { LanguageRequirements as default } from './HigherEducation';

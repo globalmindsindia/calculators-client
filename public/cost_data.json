@@ -1,0 +1,210 @@
+{
+  "germany": {
+    "rent": [600, 1200],
+    "food": [150, 300],
+    "transport": [70, 100],
+    "misc": [100, 250],
+    "average_total": [1100, 1500],
+    "sources": ["https://www.numbeo.com/cost-of-living/country_result.jsp?country=Germany"]
+  },
+  "spain": {
+    "rent": [500, 1000],
+    "food": [150, 250],
+    "transport": [50, 80],
+    "misc": [100, 200],
+    "average_total": [900, 1300],
+    "sources": ["https://www.numbeo.com/cost-of-living/country_result.jsp?country=Spain"]
+  },
+  "united_kingdom": {
+    "rent": [800, 1500],
+    "food": [200, 300],
+    "transport": [80, 120],
+    "misc": [150, 250],
+    "average_total": [1400, 1900],
+    "sources": ["https://www.numbeo.com/cost-of-living/country_result.jsp?country=United+Kingdom"]
+  },
+  "italy": {
+    "rent": [500, 1000],
+    "food": [160, 250],
+    "transport": [50, 80],
+    "misc": [120, 200],
+    "average_total": [950, 1400],
+    "sources": ["https://www.numbeo.com/cost-of-living/country_result.jsp?country=Italy"]
+  },
+  "netherlands": {
+    "rent": [700, 1300],
+    "food": [180, 250],
+    "transport": [60, 90],
+    "misc": [120, 200],
+    "average_total": [1300, 1800],
+    "sources": ["https://www.numbeo.com/cost-of-living/country_result.jsp?country=Netherlands"]
+  },
+  "austria": {
+    "rent": [600, 1100],
+    "food": [170, 250],
+    "transport": [60, 90],
+    "misc": [120, 200],
+    "average_total": [1000, 1400],
+    "sources": ["https://www.numbeo.com/cost-of-living/country_result.jsp?country=Austria"]
+  },
+  "switzerland": {
+    "rent": [1200, 2000],
+    "food": [300, 400],
+    "transport": [100, 150],
+    "misc": [200, 300],
+    "average_total": [1800, 2500],
+    "sources": ["https://www.numbeo.com/cost-of-living/country_result.jsp?country=Switzerland"]
+  },
+  "norway": {
+    "rent": [1000, 1800],
+    "food": [250, 350],
+    "transport": [90, 130],
+    "misc": [180, 280],
+    "average_total": [1600, 2200],
+    "sources": ["https://www.numbeo.com/cost-of-living/country_result.jsp?country=Norway"]
+  },
+  "finland": {
+    "rent": [700, 1200],
+    "food": [200, 280],
+    "transport": [70, 100],
+    "misc": [150, 220],
+    "average_total": [1200, 1700],
+    "sources": ["https://www.numbeo.com/cost-of-living/country_result.jsp?country=Finland"]
+  },
+  "latvia": {
+    "rent": [400, 700],
+    "food": [120, 180],
+    "transport": [40, 60],
+    "misc": [100, 150],
+    "average_total": [700, 1100],
+    "sources": ["https://www.numbeo.com/cost-of-living/country_result.jsp?country=Latvia"]
+  },
+  "poland": {
+    "rent": [300, 600],
+    "food": [100, 180],
+    "transport": [30, 50],
+    "misc": [70, 150],
+    "average_total": [700, 1000],
+    "sources": ["https://www.numbeo.com/cost-of-living/country_result.jsp?country=Poland"]
+  },
+  "france": {
+    "rent": [700, 1300],
+    "food": [180, 250],
+    "transport": [60, 90],
+    "misc": [120, 200],
+    "average_total": [1200, 1700],
+    "sources": ["https://www.numbeo.com/cost-of-living/country_result.jsp?country=France"]
+  },
+  "denmark": {
+    "rent": [900, 1500],
+    "food": [220, 300],
+    "transport": [80, 120],
+    "misc": [160, 240],
+    "average_total": [1400, 1900],
+    "sources": ["https://www.numbeo.com/cost-of-living/country_result.jsp?country=Denmark"]
+  },
+  "sweden": {
+    "rent": [600, 1100],
+    "food": [180, 250],
+    "transport": [80, 100],
+    "misc": [150, 250],
+    "average_total": [1100, 1700],
+    "sources": ["https://www.numbeo.com/cost-of-living/country_result.jsp?country=Sweden"]
+  },
+  "luxembourg": {
+    "rent": [1100, 1800],
+    "food": [250, 350],
+    "transport": [80, 120],
+    "misc": [180, 280],
+    "average_total": [1600, 2200],
+    "sources": ["https://www.numbeo.com/cost-of-living/country_result.jsp?country=Luxembourg"]
+  },
+  "russia": {
+    "rent": [300, 600],
+    "food": [100, 180],
+    "transport": [30, 50],
+    "misc": [80, 150],
+    "average_total": [600, 1000],
+    "sources": ["https://www.numbeo.com/cost-of-living/country_result.jsp?country=Russia"]
+  },
+  "ukraine": {
+    "rent": [200, 400],
+    "food": [80, 150],
+    "transport": [20, 40],
+    "misc": [60, 120],
+    "average_total": [400, 700],
+    "sources": ["https://www.numbeo.com/cost-of-living/country_result.jsp?country=Ukraine"]
+  },
+  "georgia": {
+    "rent": [250, 500],
+    "food": [100, 160],
+    "transport": [25, 45],
+    "misc": [70, 130],
+    "average_total": [500, 850],
+    "sources": ["https://www.numbeo.com/cost-of-living/country_result.jsp?country=Georgia"]
+  },
+  "ireland": {
+    "rent": [900, 1600],
+    "food": [200, 300],
+    "transport": [80, 120],
+    "misc": [150, 250],
+    "average_total": [1400, 1900],
+    "sources": ["https://www.numbeo.com/cost-of-living/country_result.jsp?country=Ireland"]
+  },
+  "usa": {
+    "rent": [1000, 2500],
+    "food": [250, 400],
+    "transport": [100, 200],
+    "misc": [200, 350],
+    "average_total": [1600, 3000],
+    "sources": ["https://www.numbeo.com/cost-of-living/country_result.jsp?country=United+States"]
+  },
+  "canada": {
+    "rent": [800, 1800],
+    "food": [200, 350],
+    "transport": [80, 150],
+    "misc": [150, 280],
+    "average_total": [1300, 2200],
+    "sources": ["https://www.numbeo.com/cost-of-living/country_result.jsp?country=Canada"]
+  },
+  "australia": {
+    "rent": [900, 2000],
+    "food": [220, 380],
+    "transport": [100, 180],
+    "misc": [180, 320],
+    "average_total": [1500, 2500],
+    "sources": ["https://www.numbeo.com/cost-of-living/country_result.jsp?country=Australia"]
+  },
+  "new_zealand": {
+    "rent": [800, 1600],
+    "food": [200, 320],
+    "transport": [80, 140],
+    "misc": [160, 260],
+    "average_total": [1300, 2100],
+    "sources": ["https://www.numbeo.com/cost-of-living/country_result.jsp?country=New+Zealand"]
+  },
+  "singapore": {
+    "rent": [1200, 2500],
+    "food": [200, 400],
+    "transport": [80, 150],
+    "misc": [180, 350],
+    "average_total": [1700, 3000],
+    "sources": ["https://www.numbeo.com/cost-of-living/country_result.jsp?country=Singapore"]
+  },
+  "south_korea": {
+    "rent": [600, 1400],
+    "food": [180, 300],
+    "transport": [60, 100],
+    "misc": [140, 250],
+    "average_total": [1000, 1800],
+    "sources": ["https://www.numbeo.com/cost-of-living/country_result.jsp?country=South+Korea"]
+  },
+  "japan": {
+    "rent": [800, 1800],
+    "food": [200, 350],
+    "transport": [80, 150],
+    "misc": [160, 300],
+    "average_total": [1300, 2200],
+    "sources": ["https://www.numbeo.com/cost-of-living/country_result.jsp?country=Japan"]
+  }
+}

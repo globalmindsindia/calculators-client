@@ -1,0 +1,1 @@
+export { WorkingInGermany as default } from './HigherEducation';

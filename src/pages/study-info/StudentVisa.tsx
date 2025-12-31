@@ -1,0 +1,1 @@
+export { StudentVisa as default } from './HigherEducation';

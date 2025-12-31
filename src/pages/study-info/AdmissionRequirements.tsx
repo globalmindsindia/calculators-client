@@ -1,0 +1,1 @@
+export { AdmissionRequirements as default } from './HigherEducation';

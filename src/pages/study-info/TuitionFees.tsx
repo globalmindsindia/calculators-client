@@ -1,0 +1,1 @@
+export { TuitionFees as default } from './HigherEducation';
