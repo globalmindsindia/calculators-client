@@ -69,17 +69,7 @@ const Expense = () => {
     }
   };
 
-  // Helper function to format preference values
-  const formatPreferenceValue = (value: string) => {
-    if (!value) return 'Not specified';
-    
-    // Convert underscore format to readable format
-    const formatted = value
-      .replace(/_/g, ' ')
-      .replace(/\b\w/g, l => l.toUpperCase());
-    
-    return formatted;
-  };
+
 
   // Helper function to calculate expense based on preference and cost range
   const calculateCategoryExpense = (costRange: number[], preference: string) => {
