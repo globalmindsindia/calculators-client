@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import { ArrowLeft, Download, Calculator, Check } from 'lucide-react';
 import { useScrollToTop } from '../../hooks/useScrollToTop';
 import { API_ENDPOINTS, postData } from '../../config/api';
+import { validateName, validateEmail, validatePhone, formatPhoneNumber } from '../../utils/validation';
 
 interface ExpenseBreakdown {
   accommodation: number;
@@ -22,6 +23,16 @@ const Expense = () => {
   const [expenses, setExpenses] = useState<ExpenseBreakdown | null>(null);
   const [loading, setLoading] = useState(true);
   const [showSignIn, setShowSignIn] = useState(false);
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    phone: ''
+  });
+  const [errors, setErrors] = useState({
+    name: '',
+    email: '',
+    phone: ''
+  });
   const selectedCountry = sessionStorage.getItem('selectedCountry') || 'Germany';
   const answers = JSON.parse(sessionStorage.getItem('questionnaireAnswers') || '{}');
 
@@ -119,12 +130,31 @@ const Expense = () => {
     setTimeout(fetchExpenses, 2000);
   }, []);
 
-  const saveUserDataToCostCalculatorDB = async (userData: any) => {
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setFormData(prev => ({
+      ...prev,
+      [e.target.name]: e.target.value
+    }));
+    setErrors(prev => ({
+      ...prev,
+      [e.target.name]: ''
+    }));
+  };
+
+  const handleInputBlur = (field: string) => {
+    let error = '';
+    if (field === 'name') error = validateName(formData.name) || '';
+    if (field === 'email') error = validateEmail(formData.email) || '';
+    if (field === 'phone') error = validatePhone(formData.phone) || '';
+    setErrors(prev => ({ ...prev, [field]: error }));
+  };
+
+  const saveUserDataToCostCalculatorDB = async (userData: any, formattedPhone: string) => {
     try {
       await postData(API_ENDPOINTS.COST_CALCULATOR.USER_DETAILS, {
         name: userData.name,
         email: userData.email,
-        phone: userData.phone,
+        phone: formattedPhone,
         intent: 'cost_calculator_report'
       });
       console.log('Cost calculator user data saved successfully');
@@ -198,18 +228,35 @@ const Expense = () => {
             <h2 className="text-2xl font-heading font-bold text-center mb-6">Enter Your Details</h2>
             <form onSubmit={async (e) => {
               e.preventDefault();
-              const formData = new FormData(e.target as HTMLFormElement);
-              const data = Object.fromEntries(formData);
+
+              // Validate all fields
+              const nameError = validateName(formData.name);
+              const emailError = validateEmail(formData.email);
+              const phoneError = validatePhone(formData.phone);
+
+              setErrors({
+                name: nameError || '',
+                email: emailError || '',
+                phone: phoneError || ''
+              });
+
+              // If there are validation errors, don't submit
+              if (nameError || emailError || phoneError) {
+                return;
+              }
+
+              const formattedPhone = formatPhoneNumber(formData.phone);
 
               // Save user data to cost calculator database
-              await saveUserDataToCostCalculatorDB(data);
+              await saveUserDataToCostCalculatorDB(formData, formattedPhone);
 
               // Store user data locally
-              sessionStorage.setItem('userData', JSON.stringify(data));
+              sessionStorage.setItem('userData', JSON.stringify(formData));
 
               // Generate and download cost calculator report
               generateCostReport({
-                ...data,
+                ...formData,
+                phone: formattedPhone,
                 expenses,
                 selectedCountry,
                 answers
@@ -223,30 +270,54 @@ const Expense = () => {
                 <input
                   type="text"
                   name="name"
+                  value={formData.name}
+                  onChange={handleInputChange}
+                  onBlur={() => handleInputBlur('name')}
                   required
-                  className="w-full px-4 py-3 border border-input rounded-lg focus:border-primary focus:outline-none"
+                  className={`w-full px-4 py-3 border rounded-lg focus:outline-none ${
+                    errors.name ? 'border-red-500 focus:border-red-500' : 'border-input focus:border-primary'
+                  }`}
                   placeholder="Enter your full name"
                 />
+                {errors.name && (
+                  <p className="text-red-500 text-xs mt-1">{errors.name}</p>
+                )}
               </div>
               <div>
                 <label className="block text-sm font-semibold mb-2">Email*</label>
                 <input
                   type="email"
                   name="email"
+                  value={formData.email}
+                  onChange={handleInputChange}
+                  onBlur={() => handleInputBlur('email')}
                   required
-                  className="w-full px-4 py-3 border border-input rounded-lg focus:border-primary focus:outline-none"
+                  className={`w-full px-4 py-3 border rounded-lg focus:outline-none ${
+                    errors.email ? 'border-red-500 focus:border-red-500' : 'border-input focus:border-primary'
+                  }`}
                   placeholder="Enter your email"
                 />
+                {errors.email && (
+                  <p className="text-red-500 text-xs mt-1">{errors.email}</p>
+                )}
               </div>
               <div>
                 <label className="block text-sm font-semibold mb-2">Phone Number*</label>
                 <input
                   type="tel"
                   name="phone"
+                  value={formData.phone}
+                  onChange={handleInputChange}
+                  onBlur={() => handleInputBlur('phone')}
                   required
-                  className="w-full px-4 py-3 border border-input rounded-lg focus:border-primary focus:outline-none"
+                  className={`w-full px-4 py-3 border rounded-lg focus:outline-none ${
+                    errors.phone ? 'border-red-500 focus:border-red-500' : 'border-input focus:border-primary'
+                  }`}
                   placeholder="Enter your phone number"
                 />
+                {errors.phone && (
+                  <p className="text-red-500 text-xs mt-1">{errors.phone}</p>
+                )}
               </div>
               <div className="flex space-x-4">
                 <button

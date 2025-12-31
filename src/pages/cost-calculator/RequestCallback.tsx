@@ -4,12 +4,20 @@ import { useNavigate } from 'react-router-dom';
 import { ArrowLeft, Phone, Mail, MessageCircle } from 'lucide-react';
 import { useScrollToTop } from '../../hooks/useScrollToTop';
 import { API_ENDPOINTS, postData } from '../../config/api';
+import { validateName, validateEmail, validatePhone, formatPhoneNumber } from '../../utils/validation';
 
 const RequestCallback = () => {
   const navigate = useNavigate();
   useScrollToTop(); // Scroll to top when component mounts
   
   const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    phone: '',
+    country: '',
+    message: ''
+  });
+  const [errors, setErrors] = useState({
     name: '',
     email: '',
     phone: '',
@@ -28,29 +36,52 @@ const RequestCallback = () => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+
+    // Validate all fields
+    const nameError = validateName(formData.name);
+    const emailError = validateEmail(formData.email);
+    const phoneError = validatePhone(formData.phone);
+
+    setErrors({
+      name: nameError || '',
+      email: emailError || '',
+      phone: phoneError || '',
+      country: '',
+      message: ''
+    });
+
+    // If there are validation errors, don't submit
+    if (nameError || emailError || phoneError) {
+      return;
+    }
+
     setIsSubmitting(true);
-    
+
     try {
+      // Format phone number with +91 prefix
+      const formattedPhone = formatPhoneNumber(formData.phone);
+
       // Store user details first
       await postData(API_ENDPOINTS.COST_CALCULATOR.USER_DETAILS, {
         name: formData.name,
         email: formData.email,
-        phone: formData.phone,
+        phone: formattedPhone,
         intent: 'requested_callback'
       });
-      
+
       // Store callback request
       await postData(API_ENDPOINTS.COST_CALCULATOR.REQUEST_CALLBACK, {
         name: formData.name,
-        mobileNumber: formData.phone
+        mobileNumber: formattedPhone
       });
-      
+
       setIsSubmitted(true);
-      
+
       // Reset form after 3 seconds
       setTimeout(() => {
         setIsSubmitted(false);
         setFormData({ name: '', email: '', phone: '', country: '', message: '' });
+        setErrors({ name: '', email: '', phone: '', country: '', message: '' });
       }, 3000);
     } catch (error) {
       console.error('Error:', error);
@@ -250,11 +281,23 @@ const RequestCallback = () => {
                         type="tel"
                         name="phone"
                         value={formData.phone}
-                        onChange={handleInputChange}
+                        onChange={(e) => {
+                          handleInputChange(e);
+                          setErrors(prev => ({ ...prev, phone: '' }));
+                        }}
+                        onBlur={(e) => {
+                          const error = validatePhone(e.target.value);
+                          setErrors(prev => ({ ...prev, phone: error || '' }));
+                        }}
                         required
-                        className="w-full px-4 py-3 border-2 border-input rounded-xl focus:border-primary focus:outline-none transition-colors bg-background text-sm sm:text-base"
+                        className={`w-full px-4 py-3 border-2 rounded-xl focus:outline-none transition-colors bg-background text-sm sm:text-base ${
+                          errors.phone ? 'border-red-500 focus:border-red-500' : 'border-input focus:border-primary'
+                        }`}
                         placeholder="Enter your phone number"
                       />
+                      {errors.phone && (
+                        <p className="text-red-500 text-xs mt-1">{errors.phone}</p>
+                      )}
                     </div>
                   </div>
 

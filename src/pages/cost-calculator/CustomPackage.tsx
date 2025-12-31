@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import { ArrowLeft, Check, Download, ChevronDown, ChevronUp } from 'lucide-react';
 import { useScrollToTop } from '../../hooks/useScrollToTop';
 import { API_ENDPOINTS, postData } from '../../config/api';
+import { validateName, validateEmail, validatePhone, formatPhoneNumber } from '../../utils/validation';
 
 interface Package {
   id: string;
@@ -21,6 +22,16 @@ const CustomPackage = () => {
   const [selectedPackages, setSelectedPackages] = useState<string[]>([]);
   const [showSignIn, setShowSignIn] = useState(false);
   const [expandedPackages, setExpandedPackages] = useState<string[]>([]);
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    phone: ''
+  });
+  const [errors, setErrors] = useState({
+    name: '',
+    email: '',
+    phone: ''
+  });
 
   const packages: Package[] = [
     {
@@ -225,7 +236,7 @@ const CustomPackage = () => {
     }
   };
 
-  const generateCustomPackagePDF = async (formData: any) => {
+  const generateCustomPackagePDF = async (formData: any, formattedPhone: string) => {
     try {
       const storedTotalCost = sessionStorage.getItem('totalCost');
       const storedPackages = sessionStorage.getItem('selectedPackages');
@@ -239,7 +250,7 @@ const CustomPackage = () => {
         body: JSON.stringify({
           name: formData.name,
           email: formData.email,
-          phone: formData.phone,
+          phone: formattedPhone,
           selected_packages: storedPackages ? JSON.parse(storedPackages) : selectedPackages,
           total_cost: storedTotalCost ? parseInt(storedTotalCost) : 0
         }),
@@ -265,22 +276,61 @@ const CustomPackage = () => {
     }
   };
 
-  const handleSignInSubmit = async (formData: any) => {
+  const handleSignInSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+
+    // Validate all fields
+    const nameError = validateName(formData.name);
+    const emailError = validateEmail(formData.email);
+    const phoneError = validatePhone(formData.phone);
+
+    setErrors({
+      name: nameError || '',
+      email: emailError || '',
+      phone: phoneError || ''
+    });
+
+    // If there are validation errors, don't submit
+    if (nameError || emailError || phoneError) {
+      return;
+    }
+
     try {
+      const formattedPhone = formatPhoneNumber(formData.phone);
+
       await postData(API_ENDPOINTS.COST_CALCULATOR.USER_DETAILS, {
         name: formData.name,
         email: formData.email,
-        phone: formData.phone,
+        phone: formattedPhone,
         intent: 'viewed_package_details',
       });
 
-      await generateCustomPackagePDF(formData);
+      await generateCustomPackagePDF(formData, formattedPhone);
     } catch (error) {
       console.error('Error:', error);
       alert('Error downloading report');
     }
 
     setShowSignIn(false);
+  };
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setFormData(prev => ({
+      ...prev,
+      [e.target.name]: e.target.value
+    }));
+    setErrors(prev => ({
+      ...prev,
+      [e.target.name]: ''
+    }));
+  };
+
+  const handleInputBlur = (field: string) => {
+    let error = '';
+    if (field === 'name') error = validateName(formData.name) || '';
+    if (field === 'email') error = validateEmail(formData.email) || '';
+    if (field === 'phone') error = validatePhone(formData.phone) || '';
+    setErrors(prev => ({ ...prev, [field]: error }));
   };
 
   if (showSignIn) {
@@ -300,11 +350,7 @@ const CustomPackage = () => {
               Enter Your Details
             </h2>
             <form
-              onSubmit={(e) => {
-                e.preventDefault();
-                const formData = new FormData(e.target as HTMLFormElement);
-                handleSignInSubmit(Object.fromEntries(formData));
-              }}
+              onSubmit={handleSignInSubmit}
               className="space-y-4"
             >
               <div>
@@ -314,10 +360,18 @@ const CustomPackage = () => {
                 <input
                   type="text"
                   name="name"
+                  value={formData.name}
+                  onChange={handleInputChange}
+                  onBlur={() => handleInputBlur('name')}
                   required
-                  className="w-full px-4 py-3 border border-input rounded-lg focus:border-primary focus:outline-none"
+                  className={`w-full px-4 py-3 border rounded-lg focus:outline-none ${
+                    errors.name ? 'border-red-500 focus:border-red-500' : 'border-input focus:border-primary'
+                  }`}
                   placeholder="Enter your full name"
                 />
+                {errors.name && (
+                  <p className="text-red-500 text-xs mt-1">{errors.name}</p>
+                )}
               </div>
               <div>
                 <label className="block text-sm font-semibold mb-2">
@@ -326,10 +380,18 @@ const CustomPackage = () => {
                 <input
                   type="email"
                   name="email"
+                  value={formData.email}
+                  onChange={handleInputChange}
+                  onBlur={() => handleInputBlur('email')}
                   required
-                  className="w-full px-4 py-3 border border-input rounded-lg focus:border-primary focus:outline-none"
+                  className={`w-full px-4 py-3 border rounded-lg focus:outline-none ${
+                    errors.email ? 'border-red-500 focus:border-red-500' : 'border-input focus:border-primary'
+                  }`}
                   placeholder="Enter your email"
                 />
+                {errors.email && (
+                  <p className="text-red-500 text-xs mt-1">{errors.email}</p>
+                )}
               </div>
               <div>
                 <label className="block text-sm font-semibold mb-2">
@@ -338,10 +400,18 @@ const CustomPackage = () => {
                 <input
                   type="tel"
                   name="phone"
+                  value={formData.phone}
+                  onChange={handleInputChange}
+                  onBlur={() => handleInputBlur('phone')}
                   required
-                  className="w-full px-4 py-3 border border-input rounded-lg focus:border-primary focus:outline-none"
+                  className={`w-full px-4 py-3 border rounded-lg focus:outline-none ${
+                    errors.phone ? 'border-red-500 focus:border-red-500' : 'border-input focus:border-primary'
+                  }`}
                   placeholder="Enter your phone number"
                 />
+                {errors.phone && (
+                  <p className="text-red-500 text-xs mt-1">{errors.phone}</p>
+                )}
               </div>
               <div className="flex space-x-4">
                 <button
