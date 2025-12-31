@@ -28,7 +28,7 @@ const Footer = () => {
         name: "Foreign Language Training",
         href: "https://languages.globalmindsindia.in/",
       },
-      { name: "IELTS Training", href: "https://globalmindsindia.in/" },
+      { name: "English Language Training", href: "https://globalmindsindia.co.in/" },
       { name: "APS Certification", href: "https://aps.globalmindsindia.in/" },
       { name: "SOP Preparation", href: "https://sop.globalmindsindia.in/" },
       { name: "Visa support", href: "https://visa.globalmindsindia.in/" },
