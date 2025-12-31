@@ -9,6 +9,9 @@ import {
   MessageCircle,
   Youtube,
 } from "lucide-react";
+import gmiLogo from '../assets/images/GMI_Logo.jpeg';
+import indiaFlag from '../assets/images/IndiaFlag.png';
+import germanyFlag from '../assets/images/germany.png';
 
 const Footer = () => {
   const footerLinks = {
@@ -82,7 +85,7 @@ const Footer = () => {
               className="mb-4"
             >
               <img
-                src="/src/assets/images/GMI_Logo.jpeg"
+                src={gmiLogo}
                 alt="Global Minds India"
                 className="h-16 w-auto"
               />
@@ -187,7 +190,7 @@ const Footer = () => {
                 <div>
                   <div className="flex items-center gap-2 font-semibold text-primary-foreground mb-1">
                     <img
-                      src="/src/assets/images/IndiaFlag.png"
+                      src={indiaFlag}
                       alt="India"
                       className="w-4 h-3 rounded-sm"
                     />
@@ -205,7 +208,7 @@ const Footer = () => {
                 <div>
                   <div className="flex items-center gap-2 font-semibold text-primary-foreground mb-1">
                     <img
-                      src="/src/assets/images/germany.png"
+                      src={germanyFlag}
                       alt="Germany"
                       className="w-4 h-3 rounded-sm"
                     />

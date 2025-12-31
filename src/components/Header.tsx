@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronDown, Menu, X, Phone } from 'lucide-react';
+import gmiLogo from '../assets/images/GMI_Logo.jpeg';
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -63,9 +64,9 @@ const Header = () => {
       <div className="container-app h-full flex items-center justify-between">
         {/* Logo */}
         <Link to="/" className="flex items-center space-x-3">
-          <img 
-            src="/src/assets/images/GMI_Logo.jpeg" 
-            alt="GMI Logo" 
+          <img
+            src={gmiLogo}
+            alt="GMI Logo"
             className="h-12 w-auto object-contain"
           />
         </Link>

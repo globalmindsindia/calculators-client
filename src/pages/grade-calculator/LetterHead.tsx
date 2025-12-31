@@ -4,6 +4,7 @@ import { useNavigate, useSearchParams } from 'react-router-dom';
 import { Download, ArrowLeft } from 'lucide-react';
 import { useScrollToTop } from '../../hooks/useScrollToTop';
 import { API_ENDPOINTS, postData } from '../../config/api';
+import gmiLogo from '../../assets/images/GMI_Logo.jpeg';
 
 const LetterHead = () => {
   const navigate = useNavigate();
@@ -203,9 +204,9 @@ const LetterHead = () => {
           {/* Header */}
           <div className="bg-primary text-primary-foreground p-8 text-center">
             <div className="flex items-center justify-center mb-4">
-              <img 
-                src="/src/assets/images/GMI_Logo_without Background.jpeg" 
-                alt="GMI Logo" 
+              <img
+                src={gmiLogo}
+                alt="GMI Logo"
                 className="h-16 w-auto"
               />
             </div>

@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import { Calculator, ArrowLeft } from 'lucide-react';
 import { useScrollToTop } from '../../hooks/useScrollToTop';
 import { API_ENDPOINTS, postData } from '../../config/api';
+import gradeCalculatorBg from '../../assets/images/Grade_calculator_Background.jpeg';
 
 const GradeCalculator = () => {
   const navigate = useNavigate();
@@ -88,7 +89,7 @@ const GradeCalculator = () => {
       exit={{ opacity: 0 }}
       className="min-h-screen pt-20"
       style={{
-        backgroundImage: `url('/src/assets/images/Grade_calculator Background.jpeg')`,
+        backgroundImage: `url(${gradeCalculatorBg})`,
         backgroundSize: 'cover',
         backgroundPosition: 'center',
         backgroundAttachment: 'fixed'

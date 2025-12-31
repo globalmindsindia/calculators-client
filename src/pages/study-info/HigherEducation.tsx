@@ -2,6 +2,7 @@ import { motion } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
 import { ArrowLeft, BookOpen, Award, Building, Users } from 'lucide-react';
 import { useScrollToTop } from '../../hooks/useScrollToTop';
+import higherEducationImg from '../../assets/images/higher_education.png';
 
 export const HigherEducation = () => {
   const navigate = useNavigate();
@@ -78,9 +79,9 @@ export const HigherEducation = () => {
           className="text-center mb-16"
         >
           <div className="flex items-center justify-center mb-6">
-            <img 
-              src="/src/assets/images/higher_education.png" 
-              alt="Higher Education" 
+            <img
+              src={higherEducationImg}
+              alt="Higher Education"
               className="w-24 h-24 rounded-full object-cover shadow-lg"
             />
           </div>

@@ -2,6 +2,7 @@ import { motion } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
 import { ArrowLeft, MapPin, Users, GraduationCap } from 'lucide-react';
 import { useScrollToTop } from '../../hooks/useScrollToTop';
+import introductionImg from '../../assets/images/Introduction.jpeg';
 
 const Introduction = () => {
   const navigate = useNavigate();
@@ -58,9 +59,9 @@ const Introduction = () => {
           className="text-center mb-16"
         >
           <div className="flex items-center justify-center mb-6">
-            <img 
-              src="/src/assets/images/Introduction.jpeg" 
-              alt="Germany Introduction" 
+            <img
+              src={introductionImg}
+              alt="Germany Introduction"
               className="w-24 h-24 rounded-full object-cover shadow-lg"
             />
           </div>

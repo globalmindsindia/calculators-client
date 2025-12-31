@@ -2,6 +2,7 @@ import { motion } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
 import { Calculator, GraduationCap, ArrowLeft } from 'lucide-react';
 import { useScrollToTop } from '../hooks/useScrollToTop';
+import germanyImg from '../assets/images/Germany.jpeg';
 
 const GermanyTools = () => {
   const navigate = useNavigate();
@@ -56,9 +57,9 @@ const GermanyTools = () => {
           className="text-center mb-16"
         >
           <div className="flex items-center justify-center mb-6">
-            <img 
-              src="/src/assets/images/Germany.jpeg" 
-              alt="Germany" 
+            <img
+              src={germanyImg}
+              alt="Germany"
               className="w-20 h-20 rounded-full object-cover shadow-lg"
             />
           </div>

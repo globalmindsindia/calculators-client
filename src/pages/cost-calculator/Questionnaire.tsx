@@ -4,6 +4,27 @@ import { useNavigate } from 'react-router-dom';
 import { ArrowLeft, ChevronRight, ChevronLeft } from 'lucide-react';
 import { useScrollToTop } from '../../hooks/useScrollToTop';
 
+// Import images
+import higherEducationImg from '../../assets/images/higher_education.png';
+import summerIntakeImg from '../../assets/images/summer_intake.jpeg';
+import winterIntakeImg from '../../assets/images/winter_intake.jpeg';
+import onCampusImg from '../../assets/images/on_campus.png';
+import offCampusImg from '../../assets/images/off_campus.png';
+import sharedImg from '../../assets/images/shared.jpeg';
+import studioImg from '../../assets/images/studio.jpeg';
+import privateHostelImg from '../../assets/images/private_hostel.png';
+import coLivingImg from '../../assets/images/co-living.jpeg';
+import cookOwnImg from '../../assets/images/cook_by_own.png';
+import eatOutsideImg from '../../assets/images/eat_outside.png';
+import mealPlanImg from '../../assets/images/meal_plan.png';
+import publicTransportImg from '../../assets/images/public_transport.png';
+import bicycleImg from '../../assets/images/bicycle.png';
+import taxiImg from '../../assets/images/taxi.png';
+import gymImg from '../../assets/images/gym.png';
+import movieImg from '../../assets/images/movie.png';
+import friendsImg from '../../assets/images/friends.png';
+import wifiImg from '../../assets/images/wifi.png';
+
 interface QuestionnaireData {
   country: string;
   courseType: string;
@@ -18,7 +39,7 @@ interface QuestionnaireData {
 const Questionnaire = () => {
   const navigate = useNavigate();
   useScrollToTop(); // Scroll to top when component mounts
-  
+
   const selectedCountry = sessionStorage.getItem('selectedCountry') || 'Germany';
   const [currentStep, setCurrentStep] = useState(0);
   const [answers, setAnswers] = useState<QuestionnaireData>({
@@ -37,63 +58,63 @@ const Questionnaire = () => {
       id: 'courseType',
       title: 'What type of course are you planning to pursue?',
       options: [
-        { value: 'bachelor', label: 'Bachelor\'s Degree', image: '/src/assets/images/higher_education.png' },
-        { value: 'master', label: 'Master\'s Degree', image: '/src/assets/images/higher_education.png' }
+        { value: 'bachelor', label: 'Bachelor\'s Degree', image: higherEducationImg },
+        { value: 'master', label: 'Master\'s Degree', image: higherEducationImg }
       ]
     },
     {
       id: 'intake',
       title: 'Which intake are you targeting?',
       options: [
-        { value: 'summer', label: 'Summer Intake', image: '/src/assets/images/summer_intake.jpeg' },
-        { value: 'winter', label: 'Winter Intake', image: '/src/assets/images/winter_intake.jpeg' }
+        { value: 'summer', label: 'Summer Intake', image: summerIntakeImg },
+        { value: 'winter', label: 'Winter Intake', image: winterIntakeImg }
       ]
     },
     {
       id: 'accommodation',
       title: 'What type of accommodation do you prefer?',
       options: [
-        { value: 'on_campus', label: 'On-Campus Housing', image: '/src/assets/images/on_campus.png' },
-        { value: 'off_campus', label: 'Off-Campus Apartment', image: '/src/assets/images/off_campus.png' },
-        { value: 'shared', label: 'Shared Accommodation', image: '/src/assets/images/shared.jpeg' },
-        { value: 'studio', label: 'Studio Apartment', image: '/src/assets/images/studio.jpeg' },
-        { value: 'private_hostel', label: 'Private Hostel', image: '/src/assets/images/private_hostel.png' },
-        { value: 'co_living', label: 'Co-living Space', image: '/src/assets/images/co-living.jpeg' }
+        { value: 'on_campus', label: 'On-Campus Housing', image: onCampusImg },
+        { value: 'off_campus', label: 'Off-Campus Apartment', image: offCampusImg },
+        { value: 'shared', label: 'Shared Accommodation', image: sharedImg },
+        { value: 'studio', label: 'Studio Apartment', image: studioImg },
+        { value: 'private_hostel', label: 'Private Hostel', image: privateHostelImg },
+        { value: 'co_living', label: 'Co-living Space', image: coLivingImg }
       ]
     },
     {
       id: 'foodHabits',
       title: 'What are your food preferences?',
       options: [
-        { value: 'cook_own', label: 'Cook by Myself', image: '/src/assets/images/cook_by_own.png' },
-        { value: 'eat_outside', label: 'Eat Outside', image: '/src/assets/images/eat_outside.png' },
-        { value: 'meal_plan', label: 'University Meal Plan', image: '/src/assets/images/meal_plan.png' }
+        { value: 'cook_own', label: 'Cook by Myself', image: cookOwnImg },
+        { value: 'eat_outside', label: 'Eat Outside', image: eatOutsideImg },
+        { value: 'meal_plan', label: 'University Meal Plan', image: mealPlanImg }
       ]
     },
     {
       id: 'transport',
       title: 'How do you plan to commute?',
       options: [
-        { value: 'public_transport', label: 'Public Transport', image: '/src/assets/images/public_transport.png' },
-        { value: 'bicycle', label: 'Bicycle', image: '/src/assets/images/bicycle.png' },
-        { value: 'taxi', label: 'Taxi/Uber', image: '/src/assets/images/taxi.png' }
+        { value: 'public_transport', label: 'Public Transport', image: publicTransportImg },
+        { value: 'bicycle', label: 'Bicycle', image: bicycleImg },
+        { value: 'taxi', label: 'Taxi/Uber', image: taxiImg }
       ]
     },
     {
       id: 'leisure',
       title: 'What leisure activities interest you?',
       options: [
-        { value: 'gym', label: 'Gym Membership', image: '/src/assets/images/gym.png' },
-        { value: 'movies', label: 'Movies & Entertainment', image: '/src/assets/images/movie.png' },
-        { value: 'friends', label: 'Social Activities', image: '/src/assets/images/friends.png' }
+        { value: 'gym', label: 'Gym Membership', image: gymImg },
+        { value: 'movies', label: 'Movies & Entertainment', image: movieImg },
+        { value: 'friends', label: 'Social Activities', image: friendsImg }
       ]
     },
     {
       id: 'mobile',
       title: 'What mobile plan do you prefer?',
       options: [
-        { value: 'basic_plan', label: 'Basic Plan', image: '/src/assets/images/wifi.png' },
-        { value: 'premium_plan', label: 'Premium Plan', image: '/src/assets/images/wifi.png' }
+        { value: 'basic_plan', label: 'Basic Plan', image: wifiImg },
+        { value: 'premium_plan', label: 'Premium Plan', image: wifiImg }
       ]
     }
   ];
