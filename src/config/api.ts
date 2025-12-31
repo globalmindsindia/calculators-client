@@ -1,5 +1,5 @@
 // API Configuration for Unified Study Calculator Backend
-const API_BASE_URL = 'http://localhost:5000/api';
+const API_BASE_URL = 'https://api.calculator.globalmindsindia.com/api';
 
 export const API_ENDPOINTS = {
   // Health check
