@@ -12,6 +12,7 @@ export const API_ENDPOINTS = {
     REQUEST_CALLBACK: `${API_BASE_URL}/cost-calculator/request-callback`,
     DOWNLOAD_REQUEST: `${API_BASE_URL}/cost-calculator/download-request`,
     DOWNLOAD_PDF: `${API_BASE_URL}/cost-calculator/download-pdf`,
+    DOWNLOAD_CUSTOM_PACKAGE_PDF: `${API_BASE_URL}/cost-calculator/download-custom-package-pdf`,
   },
   
   // Grade Calculator endpoints

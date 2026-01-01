@@ -241,7 +241,7 @@ const CustomPackage = () => {
       const storedTotalCost = sessionStorage.getItem('totalCost');
       const storedPackages = sessionStorage.getItem('selectedPackages');
 
-      const response = await fetch(API_ENDPOINTS.COST_CALCULATOR.DOWNLOAD_PDF, {
+      const response = await fetch(API_ENDPOINTS.COST_CALCULATOR.DOWNLOAD_CUSTOM_PACKAGE_PDF, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -252,8 +252,7 @@ const CustomPackage = () => {
           email: formData.email,
           phone: formattedPhone,
           selected_packages: storedPackages ? JSON.parse(storedPackages) : selectedPackages,
-          total_cost: storedTotalCost ? parseInt(storedTotalCost) : 0,
-          report_type: 'custom_package'
+          total_cost: storedTotalCost ? parseInt(storedTotalCost) : 0
         }),
       });
 
