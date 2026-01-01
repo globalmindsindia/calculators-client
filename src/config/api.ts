@@ -8,6 +8,7 @@ export const API_ENDPOINTS = {
   // Cost Calculator endpoints
   COST_CALCULATOR: {
     CALCULATE: `${API_BASE_URL}/cost-calculator/calculate`,
+    CALCULATE_CUSTOM_PACKAGE: `${API_BASE_URL}/cost-calculator/calculate-custom-package`,
     USER_DETAILS: `${API_BASE_URL}/cost-calculator/user-details`,
     REQUEST_CALLBACK: `${API_BASE_URL}/cost-calculator/request-callback`,
     DOWNLOAD_REQUEST: `${API_BASE_URL}/cost-calculator/download-request`,
