@@ -4,6 +4,7 @@ import { Calculator, GraduationCap, ArrowLeft } from 'lucide-react';
 import { useScrollToTop } from '../hooks/useScrollToTop';
 import germanyImg from '../assets/images/Germany.jpeg';
 
+
 const GermanyTools = () => {
   const navigate = useNavigate();
   useScrollToTop(); // Scroll to top when component mounts
@@ -72,7 +73,7 @@ const GermanyTools = () => {
         </motion.div>
 
         {/* Tool Cards */}
-        <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+        <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto items-stretch">
           {tools.map((tool, index) => {
             const IconComponent = tool.icon;
             return (
@@ -84,14 +85,18 @@ const GermanyTools = () => {
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
                 onClick={tool.onClick}
-                className="bg-card rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 cursor-pointer border border-border group"
+                className="bg-card rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 cursor-pointer border border-border group flex flex-col h-full"
               >
-                <div className="text-center space-y-6">
-                  <div className={`w-20 h-20 ${tool.color} rounded-2xl flex items-center justify-center mx-auto group-hover:scale-110 transition-transform duration-300`}>
+                {/* Card content wrapper takes full height, flex column */}
+                <div className="text-center space-y-6 flex flex-col h-full">
+                  <div
+                    className={`w-20 h-20 ${tool.color} rounded-2xl flex items-center justify-center mx-auto group-hover:scale-110 transition-transform duration-300`}
+                  >
                     <IconComponent className="w-10 h-10 text-white" />
                   </div>
-                  
-                  <div>
+
+                  {/* This block grows to fill remaining space */}
+                  <div className="flex-1">
                     <h3 className="text-2xl font-heading font-bold text-card-foreground mb-3">
                       {tool.title}
                     </h3>
@@ -100,7 +105,10 @@ const GermanyTools = () => {
                     </p>
                   </div>
 
-                  <button className={`w-full py-3 ${tool.color} ${tool.hoverColor} text-white rounded-xl font-semibold transition-colors duration-200`}>
+                  {/* Button is pushed to bottom by flex-1 above */}
+                  <button
+                    className={`w-full py-3 ${tool.color} ${tool.hoverColor} text-white rounded-xl font-semibold transition-colors duration-200`}
+                  >
                     Get Started
                   </button>
                 </div>
@@ -117,10 +125,11 @@ const GermanyTools = () => {
           className="text-center mt-16"
         >
           <div className="bg-card rounded-xl p-6 max-w-2xl mx-auto border border-border">
-            <h3 className="text-xl font-heading font-semibold mb-3">Why Study in Germany?</h3>
+            <h3 className="text-xl font-heading font-semibold mb-3">
+              Why Study in Germany?
+            </h3>
             <p className="text-muted-foreground">
-              Germany offers world-class education with low tuition fees, excellent research opportunities, 
-              and strong job prospects after graduation. Use our tools to plan your journey effectively.
+              Germany offers world-class education with low tuition fees, excellent research opportunities, and strong job prospects after graduation. Use our tools to plan your journey effectively.
             </p>
           </div>
         </motion.div>
