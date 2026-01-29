@@ -10,7 +10,6 @@ interface Package {
   id: string;
   name: string;
   description: string;
-  price: number;
   features: string[];
   popular?: boolean;
 }
@@ -38,24 +37,22 @@ const CustomPackage = () => {
       id: 'passport',
       name: 'PASSPORT',
       description: 'Complete passport application and processing services',
-      price: 150,
       features: [
         'Review documents',
         'Generate login & File application',
         'Obtain appointment',
         'Followup police verification',
         'Dispatch status',
-        'PASSPORT FEE ADDED',
+        'PASSPORT FEE INCLUDED',
       ],
     },
     {
       id: 'counselling',
-      name: 'Career Counselling and Pre-application Assistance + University Application',
+      name: 'CAREER COUNSELLING & PRE-APPLICATION ASSISTANCE + UNIVERSITY APPLICATION',
       description: 'Comprehensive guidance for university selection and applications',
-      price: 2500,
       features: [
         'Detailed profile evaluation',
-        'Mentorship & document analysis',
+        '1:1 Mentorship & document analysis',
         'Eligibility check',
         'Finalize desired country and course selection',
         'Evaluation and finalization of the budget',
@@ -64,7 +61,8 @@ const CustomPackage = () => {
         'Letter of motivation preparation & review',
         'At least 1 university offer guaranteed (public / aided / private)',
         'CV writing & profile building',
-        'Prepare IELTS and language preparation',
+        'Prepare IELTS and language preparation (Regarding training required or not)',
+        'Doctor certificate - mandatory for sports medicine course',
         'Application for 6 universities',
         'Get information: Research the requirements for your chosen course',
         'Plan: Use checklists and deadlines to plan your application',
@@ -78,9 +76,8 @@ const CustomPackage = () => {
     },
     {
       id: 'aps',
-      name: 'APS Certification',
+      name: 'APS CERTIFICATION',
       description: 'Academic evaluation and certification for German universities',
-      price: 800,
       features: [
         'APS Advice & Documentation ADVICE',
         'Application process',
@@ -92,16 +89,14 @@ const CustomPackage = () => {
     },
     {
       id: 'language',
-      name: 'IELTS / TOEFL + Language Training (A1 + A2)',
+      name: 'IELTS / TOEFL + LANGUAGE TRAINING (German, French, Spain and more)',
       description: 'Complete language preparation and certification program',
-      price: 1500,
       features: [
-        'DEMO CLASS',
         'Mock test - 80 test series to ensure good score',
         'Training - hybrid training for better results - 2 months with all study materials',
         'Every mock test gets evaluated by trainer and exchange of feedback',
         'Experience Faculty with real time training and advice on every test',
-        'Including exam fees 18000',
+        'Including exam fees',
         'Guidance for language Training',
         'Level -A1: Hybrid classes for 100 hrs, 4 days online and 1-day offline class',
         'Textbook and audio components, planner, study materials',
@@ -113,43 +108,60 @@ const CustomPackage = () => {
     },
     {
       id: 'visa',
-      name: 'Blocked Account, Financial Assistance, Visa Process, Air Ticket, Travel Insurance',
+      name: 'VISA PROCESS',
       description: 'Complete visa processing and financial assistance package',
-      price: 3000,
       features: [
-        'BLOCKED ACCOUNT OPEN',
-        'Bank Account: Both NRO and NRI A/c will be opened in India',
-        'ABROAD BANK ACCOUNT',
-        'FOREX CARD',
-        'Education Loan upto 50 Lakhs (non collateral)',
-        'All Govt schemes applicable depending on the criteria',
         'Visa Documentation Advice',
         'Visa questions & mock interview preparation',
         'Visa appointment via VFS portal inc global & courier charges',
         'Visa fee included',
-        'Ticket booking guidance',
-        'One way Travel Ticket',
-        'Reservation of the Seats (Travel class - Economy)',
-        'Includes 60+ Kg of check-in baggage + Hand luggage of 8kg',
-        'Travel Insurance valid for 2 years (24 months) - Multiple entry',
       ],
     },
     {
-      id: 'other',
-      name: 'Other Services',
+      id: 'study-abroad-essentials',
+      name: 'PRE AND POST TRAVEL ESSENTIALS',
       description: 'Additional support services for your study abroad journey',
-      price: 500,
       features: [
         'Travel kit: All students will be issued a travel essential kit',
+        'Forex card: Prepaid forex card will be issued',
         'Scholarship: As per eligibility, if student qualifies',
         'Part time job: we provide assistance to get part-time jobs',
         'Tax registration: In Germany city registration appointment and documentation',
-        'CULTURAL and skill development',
+        'Bank Account: Both NRO and NRI A/c will be opened in India, in addition, German bank account will also be provided',
         'SIM card services: We provide Prepaid German SIM card',
         'Airport pickup: Available to drop off at your accommodation',
         'Germany law briefing',
         "Student's life in Germany briefing",
         "Assistance provided for work visa in respective chosen country, for an extra 2 years after completion of Master's",
+      ],
+    },
+
+    /*
+    {
+      id: 'Accomodation',
+      name: 'ACCOMMODATION & HOTLINE',
+      description: 'Comprehensive accomdation support for your study abroad journey',
+      price: 500,
+      features: [
+        'We provide accomodation',
+        'Same city as University',
+        'Assistance free pass public transport for the university that does not provide',
+        'Issue rental agreement and help to get all documentation',
+        'Those who take Accomodation with us, we provide 24/7 HOTLINE service to ensure students safty to parents',
+      ],
+    },
+    */
+   
+    {
+      id: 'others',
+      name: 'OTHERS',
+      description: 'Additional services for your study abroad journey',
+      features: [
+        'Financial Assistance : Education Loan upto 50 Lakhs (non colatral)',
+        'All Govt schemes applicable depending on the criteria',
+        'TRAVEL INSURANCE IN GERMANY- FOR 2 YEARS : Travel Insurance valid for 2 years (24 months) - Multiple entry. Mandatory requirement of Travel insurance for Visa Authority',
+        'AIRTICKET - ANY DATE - ECONOMY : One way Travel Ticket, Reservation of the Seats (Travel class - Economy) and Includes 60+ Kg of check-in baggage + Hand luggage of 8kg',
+        'Those who take Accomodation with us, we provide 24/7 HOTLINE service to ensure students safty to parents',
       ],
     },
   ];
@@ -192,12 +204,22 @@ const CustomPackage = () => {
         'aps': 'Bucket-3',
         'language': 'Bucket-4',
         'visa': 'Bucket-5',
-        'other': 'Bucket-6'
+        'study-abroad-essentials': 'Bucket-6',
+        'others': 'Bucket-7'
       };
 
       const selectedBuckets = selectedPackages.map(packageId => bucketMapping[packageId]).filter(Boolean);
       console.log('Selected packages:', selectedPackages);
       console.log('Mapped buckets:', selectedBuckets);
+      
+      // Debug: Check if mapping is working correctly
+      selectedPackages.forEach(packageId => {
+        const bucket = bucketMapping[packageId];
+        console.log(`Package '${packageId}' maps to '${bucket}'`);
+        if (!bucket) {
+          console.error(`No bucket mapping found for package: ${packageId}`);
+        }
+      });
 
       const response = await fetch(API_ENDPOINTS.COST_CALCULATOR.CALCULATE, {
         method: 'POST',
@@ -238,8 +260,36 @@ const CustomPackage = () => {
 
   const generateCustomPackagePDF = async (formData: any, formattedPhone: string) => {
     try {
-      const storedTotalCost = sessionStorage.getItem('totalCost');
       const storedPackages = sessionStorage.getItem('selectedPackages');
+      const storedBuckets = sessionStorage.getItem('selectedBuckets');
+
+      console.log('Generating PDF with data:', {
+        name: formData.name,
+        email: formData.email,
+        phone: formattedPhone,
+        selectedPackages: storedPackages ? JSON.parse(storedPackages) : selectedPackages,
+        selectedBuckets: storedBuckets ? JSON.parse(storedBuckets) : []
+      });
+
+      const requestBody = {
+        name: formData.name,
+        email: formData.email,
+        phone: formattedPhone,
+        selected_packages: storedPackages ? JSON.parse(storedPackages) : selectedPackages,
+        selected_buckets: storedBuckets ? JSON.parse(storedBuckets) : [],
+        // Send package details for PDF content
+        package_details: (storedPackages ? JSON.parse(storedPackages) : selectedPackages).map((packageId: string) => {
+          const pkg = packages.find(p => p.id === packageId);
+          return pkg ? {
+            id: pkg.id,
+            name: pkg.name,
+            description: pkg.description,
+            features: pkg.features
+          } : null;
+        }).filter(Boolean)
+      };
+      
+      console.log('PDF Request Body:', JSON.stringify(requestBody, null, 2));
 
       const response = await fetch(API_ENDPOINTS.COST_CALCULATOR.DOWNLOAD_CUSTOM_PACKAGE_PDF, {
         method: 'POST',
@@ -247,13 +297,7 @@ const CustomPackage = () => {
           'Content-Type': 'application/json',
         },
         credentials: 'include',
-        body: JSON.stringify({
-          name: formData.name,
-          email: formData.email,
-          phone: formattedPhone,
-          selected_packages: storedPackages ? JSON.parse(storedPackages) : selectedPackages,
-          total_cost: storedTotalCost ? parseInt(storedTotalCost) : 0
-        }),
+        body: JSON.stringify(requestBody),
       });
 
       if (!response.ok) {
@@ -265,7 +309,7 @@ const CustomPackage = () => {
       const url = window.URL.createObjectURL(blob);
       const link = document.createElement('a');
       link.href = url;
-      link.download = `Custom_Package_${formData.name.replace(' ', '_')}.pdf`;
+      link.download = `Custom_Package_${formData.name.replace(/\s+/g, '_')}.pdf`;
       document.body.appendChild(link);
       link.click();
       document.body.removeChild(link);
