@@ -46,13 +46,32 @@ const Expense = () => {
       const countryKey = selectedCountry.toLowerCase().replace(' ', '_');
       const countryCosts = costData[countryKey] || costData['germany']; // fallback to Germany
       
-      // Calculate based on user preferences and cost ranges
-      const accommodation = calculateCategoryExpense(countryCosts.rent, answers.accommodation);
-      const food = calculateCategoryExpense(countryCosts.food, answers.foodHabits);
-      const transport = calculateCategoryExpense(countryCosts.transport, answers.transport);
-      const leisure = calculateCategoryExpense([30, 100], answers.leisure); // estimated range
-      const mobile = calculateCategoryExpense([20, 50], answers.mobile); // estimated range
-      const miscellaneous = Math.round((countryCosts.misc[0] + countryCosts.misc[1]) / 2);
+      // Helper function to get the lowest cost from structure
+      const getLowestCostFromStructure = (costObj: any) => {
+        if (typeof costObj === 'object' && !Array.isArray(costObj)) {
+          // New structure with question-based costs - find the lowest minimum value
+          let lowestMin = Infinity;
+          Object.keys(costObj).forEach(key => {
+            if (Array.isArray(costObj[key]) && costObj[key].length >= 2) {
+              lowestMin = Math.min(lowestMin, costObj[key][0]); // Take the minimum value
+            }
+          });
+          return lowestMin === Infinity ? 0 : lowestMin;
+        } else if (Array.isArray(costObj)) {
+          // Old structure - simple array, take minimum
+          return costObj[0];
+        }
+        return 0;
+      };
+      
+      // Calculate based on lowest possible costs for the country
+      const accommodation = getLowestCostFromStructure(countryCosts.rent);
+      const food = getLowestCostFromStructure(countryCosts.food);
+      const transport = getLowestCostFromStructure(countryCosts.transport);
+      const miscellaneous = getLowestCostFromStructure(countryCosts.misc);
+      
+      const leisure = 30; // minimum leisure cost
+      const mobile = 20; // minimum mobile cost
 
       const total = accommodation + food + transport + leisure + mobile + miscellaneous;
 
@@ -460,7 +479,7 @@ const Expense = () => {
               className="flex items-center justify-center space-x-2 bg-secondary text-secondary-foreground px-8 py-3 rounded-full font-semibold hover:bg-secondary/90 transition-colors"
             >
               <Download className="w-5 h-5" />
-              <span>Download Package Details</span>
+              <span>Download Expense Report</span>
             </button>
           </motion.div>
 

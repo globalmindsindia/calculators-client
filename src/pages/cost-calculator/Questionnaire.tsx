@@ -120,7 +120,8 @@ const Questionnaire = () => {
   ];
 
   const handleAnswer = (questionId: string, value: string) => {
-    setAnswers(prev => ({ ...prev, [questionId]: value }));
+    const updatedAnswers = { ...answers, [questionId]: value };
+    setAnswers(updatedAnswers);
     
     // Scroll to top for next question
     window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -129,8 +130,8 @@ const Questionnaire = () => {
       if (currentStep < questions.length - 1) {
         setCurrentStep(prev => prev + 1);
       } else {
-        // Store answers and navigate to results
-        sessionStorage.setItem('questionnaireAnswers', JSON.stringify(answers));
+        // Last question answered - automatically calculate and navigate
+        sessionStorage.setItem('questionnaireAnswers', JSON.stringify(updatedAnswers));
         navigate('/cost-calculator/expense');
       }
     }, 500);
@@ -253,36 +254,46 @@ const Questionnaire = () => {
                 ))}
               </div>
 
-              {/* Navigation Buttons */}
-              <div className="flex justify-between items-center mt-8">
-                <motion.button
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: currentStep > 0 ? 1 : 0.5 }}
-                  onClick={handlePrevious}
-                  disabled={currentStep === 0}
-                  className="flex items-center space-x-2 px-6 py-3 bg-primary text-primary-foreground rounded-xl font-semibold hover:bg-primary/90 transition-colors disabled:cursor-not-allowed disabled:opacity-50"
-                >
-                  <ChevronLeft className="w-5 h-5" />
-                  <span>Previous</span>
-                </motion.button>
+              {/* Navigation Buttons - Only show if not on last question */}
+              {currentStep < questions.length - 1 && (
+                <div className="flex justify-between items-center mt-8">
+                  <motion.button
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: currentStep > 0 ? 1 : 0.5 }}
+                    onClick={handlePrevious}
+                    disabled={currentStep === 0}
+                    className="flex items-center space-x-2 px-6 py-3 bg-primary text-primary-foreground rounded-xl font-semibold hover:bg-primary/90 transition-colors disabled:cursor-not-allowed disabled:opacity-50"
+                  >
+                    <ChevronLeft className="w-5 h-5" />
+                    <span>Previous</span>
+                  </motion.button>
 
-                <motion.button
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  onClick={() => {
-                    if (currentStep === questions.length - 1) {
-                      sessionStorage.setItem('questionnaireAnswers', JSON.stringify(answers));
-                      navigate('/cost-calculator/expense');
-                    } else {
-                      handleNext();
-                    }
-                  }}
-                  className="flex items-center space-x-2 px-6 py-3 bg-primary text-primary-foreground rounded-xl font-semibold hover:bg-primary/90 transition-colors"
-                >
-                  <span>{currentStep === questions.length - 1 ? 'Finish' : 'Next'}</span>
-                  <ChevronRight className="w-5 h-5" />
-                </motion.button>
-              </div>
+                  <motion.button
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    onClick={handleNext}
+                    className="flex items-center space-x-2 px-6 py-3 bg-primary text-primary-foreground rounded-xl font-semibold hover:bg-primary/90 transition-colors"
+                  >
+                    <span>Next</span>
+                    <ChevronRight className="w-5 h-5" />
+                  </motion.button>
+                </div>
+              )}
+              
+              {/* Only show Previous button on last question */}
+              {currentStep === questions.length - 1 && (
+                <div className="flex justify-start items-center mt-8">
+                  <motion.button
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    onClick={handlePrevious}
+                    className="flex items-center space-x-2 px-6 py-3 bg-primary text-primary-foreground rounded-xl font-semibold hover:bg-primary/90 transition-colors"
+                  >
+                    <ChevronLeft className="w-5 h-5" />
+                    <span>Previous</span>
+                  </motion.button>
+                </div>
+              )}
             </div>
           </motion.div>
         </AnimatePresence>

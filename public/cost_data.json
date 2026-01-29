@@ -1,209 +1,859 @@
 {
   "germany": {
-    "rent": [600, 1200],
-    "food": [150, 300],
-    "transport": [70, 100],
-    "misc": [100, 250],
+    "rent": {
+      "base": [600, 1200],
+      "on_campus": [420, 840],
+      "shared": [480, 960],
+      "private_hostel": [540, 1080],
+      "co_living": [600, 1200],
+      "off_campus": [660, 1320],
+      "studio": [780, 1560]
+    },
+    "food": {
+      "base": [150, 300],
+      "cook_own": [90, 180],
+      "meal_plan": [120, 240],
+      "eat_outside": [210, 420]
+    },
+    "transport": {
+      "base": [70, 100],
+      "bicycle": [21, 30],
+      "public_transport": [70, 100],
+      "taxi": [175, 250]
+    },
+    "misc": {
+      "base": [100, 250],
+      "bachelor": [90, 225],
+      "master": [110, 275],
+      "gym": [110, 275],
+      "movies": [115, 288],
+      "friends": [120, 300]
+    },
     "average_total": [1100, 1500],
     "sources": ["https://www.numbeo.com/cost-of-living/country_result.jsp?country=Germany"]
   },
   "spain": {
-    "rent": [500, 1000],
-    "food": [150, 250],
-    "transport": [50, 80],
-    "misc": [100, 200],
+    "rent": {
+      "base": [500, 1000],
+      "on_campus": [350, 700],
+      "shared": [400, 800],
+      "private_hostel": [450, 900],
+      "co_living": [500, 1000],
+      "off_campus": [550, 1100],
+      "studio": [650, 1300]
+    },
+    "food": {
+      "base": [150, 250],
+      "cook_own": [90, 150],
+      "meal_plan": [120, 200],
+      "eat_outside": [210, 350]
+    },
+    "transport": {
+      "base": [50, 80],
+      "bicycle": [15, 24],
+      "public_transport": [50, 80],
+      "taxi": [125, 200]
+    },
+    "misc": {
+      "base": [100, 200],
+      "bachelor": [90, 180],
+      "master": [110, 220],
+      "gym": [110, 220],
+      "movies": [115, 230],
+      "friends": [120, 240]
+    },
     "average_total": [900, 1300],
     "sources": ["https://www.numbeo.com/cost-of-living/country_result.jsp?country=Spain"]
   },
   "united_kingdom": {
-    "rent": [800, 1500],
-    "food": [200, 300],
-    "transport": [80, 120],
-    "misc": [150, 250],
+    "rent": {
+      "base": [800, 1500],
+      "on_campus": [560, 1050],
+      "shared": [640, 1200],
+      "private_hostel": [720, 1350],
+      "co_living": [800, 1500],
+      "off_campus": [880, 1650],
+      "studio": [1040, 1950]
+    },
+    "food": {
+      "base": [200, 300],
+      "cook_own": [120, 180],
+      "meal_plan": [160, 240],
+      "eat_outside": [280, 420]
+    },
+    "transport": {
+      "base": [80, 120],
+      "bicycle": [24, 36],
+      "public_transport": [80, 120],
+      "taxi": [200, 300]
+    },
+    "misc": {
+      "base": [150, 250],
+      "bachelor": [135, 225],
+      "master": [165, 275],
+      "gym": [165, 275],
+      "movies": [173, 288],
+      "friends": [180, 300]
+    },
     "average_total": [1400, 1900],
     "sources": ["https://www.numbeo.com/cost-of-living/country_result.jsp?country=United+Kingdom"]
   },
   "italy": {
-    "rent": [500, 1000],
-    "food": [160, 250],
-    "transport": [50, 80],
-    "misc": [120, 200],
+    "rent": {
+      "base": [500, 1000],
+      "on_campus": [350, 700],
+      "shared": [400, 800],
+      "private_hostel": [450, 900],
+      "co_living": [500, 1000],
+      "off_campus": [550, 1100],
+      "studio": [650, 1300]
+    },
+    "food": {
+      "base": [160, 250],
+      "cook_own": [96, 150],
+      "meal_plan": [128, 200],
+      "eat_outside": [224, 350]
+    },
+    "transport": {
+      "base": [50, 80],
+      "bicycle": [15, 24],
+      "public_transport": [50, 80],
+      "taxi": [125, 200]
+    },
+    "misc": {
+      "base": [120, 200],
+      "bachelor": [108, 180],
+      "master": [132, 220],
+      "gym": [132, 220],
+      "movies": [138, 230],
+      "friends": [144, 240]
+    },
     "average_total": [950, 1400],
     "sources": ["https://www.numbeo.com/cost-of-living/country_result.jsp?country=Italy"]
   },
   "netherlands": {
-    "rent": [700, 1300],
-    "food": [180, 250],
-    "transport": [60, 90],
-    "misc": [120, 200],
+    "rent": {
+      "base": [700, 1300],
+      "on_campus": [490, 910],
+      "shared": [560, 1040],
+      "private_hostel": [630, 1170],
+      "co_living": [700, 1300],
+      "off_campus": [770, 1430],
+      "studio": [910, 1690]
+    },
+    "food": {
+      "base": [180, 250],
+      "cook_own": [108, 150],
+      "meal_plan": [144, 200],
+      "eat_outside": [252, 350]
+    },
+    "transport": {
+      "base": [60, 90],
+      "bicycle": [18, 27],
+      "public_transport": [60, 90],
+      "taxi": [150, 225]
+    },
+    "misc": {
+      "base": [120, 200],
+      "bachelor": [108, 180],
+      "master": [132, 220],
+      "gym": [132, 220],
+      "movies": [138, 230],
+      "friends": [144, 240]
+    },
     "average_total": [1300, 1800],
     "sources": ["https://www.numbeo.com/cost-of-living/country_result.jsp?country=Netherlands"]
   },
   "austria": {
-    "rent": [600, 1100],
-    "food": [170, 250],
-    "transport": [60, 90],
-    "misc": [120, 200],
+    "rent": {
+      "base": [600, 1100],
+      "on_campus": [420, 770],
+      "shared": [480, 880],
+      "private_hostel": [540, 990],
+      "co_living": [600, 1100],
+      "off_campus": [660, 1210],
+      "studio": [780, 1430]
+    },
+    "food": {
+      "base": [170, 250],
+      "cook_own": [102, 150],
+      "meal_plan": [136, 200],
+      "eat_outside": [238, 350]
+    },
+    "transport": {
+      "base": [60, 90],
+      "bicycle": [18, 27],
+      "public_transport": [60, 90],
+      "taxi": [150, 225]
+    },
+    "misc": {
+      "base": [120, 200],
+      "bachelor": [108, 180],
+      "master": [132, 220],
+      "gym": [132, 220],
+      "movies": [138, 230],
+      "friends": [144, 240]
+    },
     "average_total": [1000, 1400],
     "sources": ["https://www.numbeo.com/cost-of-living/country_result.jsp?country=Austria"]
   },
   "switzerland": {
-    "rent": [1200, 2000],
-    "food": [300, 400],
-    "transport": [100, 150],
-    "misc": [200, 300],
+    "rent": {
+      "base": [1200, 2000],
+      "on_campus": [840, 1400],
+      "shared": [960, 1600],
+      "private_hostel": [1080, 1800],
+      "co_living": [1200, 2000],
+      "off_campus": [1320, 2200],
+      "studio": [1560, 2600]
+    },
+    "food": {
+      "base": [300, 400],
+      "cook_own": [180, 240],
+      "meal_plan": [240, 320],
+      "eat_outside": [420, 560]
+    },
+    "transport": {
+      "base": [100, 150],
+      "bicycle": [30, 45],
+      "public_transport": [100, 150],
+      "taxi": [250, 375]
+    },
+    "misc": {
+      "base": [200, 300],
+      "bachelor": [180, 270],
+      "master": [220, 330],
+      "gym": [220, 330],
+      "movies": [230, 345],
+      "friends": [240, 360]
+    },
     "average_total": [1800, 2500],
     "sources": ["https://www.numbeo.com/cost-of-living/country_result.jsp?country=Switzerland"]
   },
   "norway": {
-    "rent": [1000, 1800],
-    "food": [250, 350],
-    "transport": [90, 130],
-    "misc": [180, 280],
+    "rent": {
+      "base": [1000, 1800],
+      "on_campus": [700, 1260],
+      "shared": [800, 1440],
+      "private_hostel": [900, 1620],
+      "co_living": [1000, 1800],
+      "off_campus": [1100, 1980],
+      "studio": [1300, 2340]
+    },
+    "food": {
+      "base": [250, 350],
+      "cook_own": [150, 210],
+      "meal_plan": [200, 280],
+      "eat_outside": [350, 490]
+    },
+    "transport": {
+      "base": [90, 130],
+      "bicycle": [27, 39],
+      "public_transport": [90, 130],
+      "taxi": [225, 325]
+    },
+    "misc": {
+      "base": [180, 280],
+      "bachelor": [162, 252],
+      "master": [198, 308],
+      "gym": [198, 308],
+      "movies": [207, 322],
+      "friends": [216, 336]
+    },
     "average_total": [1600, 2200],
     "sources": ["https://www.numbeo.com/cost-of-living/country_result.jsp?country=Norway"]
   },
   "finland": {
-    "rent": [700, 1200],
-    "food": [200, 280],
-    "transport": [70, 100],
-    "misc": [150, 220],
+    "rent": {
+      "base": [700, 1200],
+      "on_campus": [490, 840],
+      "shared": [560, 960],
+      "private_hostel": [630, 1080],
+      "co_living": [700, 1200],
+      "off_campus": [770, 1320],
+      "studio": [910, 1560]
+    },
+    "food": {
+      "base": [200, 280],
+      "cook_own": [120, 168],
+      "meal_plan": [160, 224],
+      "eat_outside": [280, 392]
+    },
+    "transport": {
+      "base": [70, 100],
+      "bicycle": [21, 30],
+      "public_transport": [70, 100],
+      "taxi": [175, 250]
+    },
+    "misc": {
+      "base": [150, 220],
+      "bachelor": [135, 198],
+      "master": [165, 242],
+      "gym": [165, 242],
+      "movies": [173, 253],
+      "friends": [180, 264]
+    },
     "average_total": [1200, 1700],
     "sources": ["https://www.numbeo.com/cost-of-living/country_result.jsp?country=Finland"]
   },
   "latvia": {
-    "rent": [400, 700],
-    "food": [120, 180],
-    "transport": [40, 60],
-    "misc": [100, 150],
+    "rent": {
+      "base": [400, 700],
+      "on_campus": [280, 490],
+      "shared": [320, 560],
+      "private_hostel": [360, 630],
+      "co_living": [400, 700],
+      "off_campus": [440, 770],
+      "studio": [520, 910]
+    },
+    "food": {
+      "base": [120, 180],
+      "cook_own": [72, 108],
+      "meal_plan": [96, 144],
+      "eat_outside": [168, 252]
+    },
+    "transport": {
+      "base": [40, 60],
+      "bicycle": [12, 18],
+      "public_transport": [40, 60],
+      "taxi": [100, 150]
+    },
+    "misc": {
+      "base": [100, 150],
+      "bachelor": [90, 135],
+      "master": [110, 165],
+      "gym": [110, 165],
+      "movies": [115, 173],
+      "friends": [120, 180]
+    },
     "average_total": [700, 1100],
     "sources": ["https://www.numbeo.com/cost-of-living/country_result.jsp?country=Latvia"]
   },
   "poland": {
-    "rent": [300, 600],
-    "food": [100, 180],
-    "transport": [30, 50],
-    "misc": [70, 150],
+    "rent": {
+      "base": [300, 600],
+      "on_campus": [210, 420],
+      "shared": [240, 480],
+      "private_hostel": [270, 540],
+      "co_living": [300, 600],
+      "off_campus": [330, 660],
+      "studio": [390, 780]
+    },
+    "food": {
+      "base": [100, 180],
+      "cook_own": [60, 108],
+      "meal_plan": [80, 144],
+      "eat_outside": [140, 252]
+    },
+    "transport": {
+      "base": [30, 50],
+      "bicycle": [9, 15],
+      "public_transport": [30, 50],
+      "taxi": [75, 125]
+    },
+    "misc": {
+      "base": [70, 150],
+      "bachelor": [63, 135],
+      "master": [77, 165],
+      "gym": [77, 165],
+      "movies": [81, 173],
+      "friends": [84, 180]
+    },
     "average_total": [700, 1000],
     "sources": ["https://www.numbeo.com/cost-of-living/country_result.jsp?country=Poland"]
   },
   "france": {
-    "rent": [700, 1300],
-    "food": [180, 250],
-    "transport": [60, 90],
-    "misc": [120, 200],
+    "rent": {
+      "base": [700, 1300],
+      "on_campus": [490, 910],
+      "shared": [560, 1040],
+      "private_hostel": [630, 1170],
+      "co_living": [700, 1300],
+      "off_campus": [770, 1430],
+      "studio": [910, 1690]
+    },
+    "food": {
+      "base": [180, 250],
+      "cook_own": [108, 150],
+      "meal_plan": [144, 200],
+      "eat_outside": [252, 350]
+    },
+    "transport": {
+      "base": [60, 90],
+      "bicycle": [18, 27],
+      "public_transport": [60, 90],
+      "taxi": [150, 225]
+    },
+    "misc": {
+      "base": [120, 200],
+      "bachelor": [108, 180],
+      "master": [132, 220],
+      "gym": [132, 220],
+      "movies": [138, 230],
+      "friends": [144, 240]
+    },
     "average_total": [1200, 1700],
     "sources": ["https://www.numbeo.com/cost-of-living/country_result.jsp?country=France"]
   },
   "denmark": {
-    "rent": [900, 1500],
-    "food": [220, 300],
-    "transport": [80, 120],
-    "misc": [160, 240],
+    "rent": {
+      "base": [900, 1500],
+      "on_campus": [630, 1050],
+      "shared": [720, 1200],
+      "private_hostel": [810, 1350],
+      "co_living": [900, 1500],
+      "off_campus": [990, 1650],
+      "studio": [1170, 1950]
+    },
+    "food": {
+      "base": [220, 300],
+      "cook_own": [132, 180],
+      "meal_plan": [176, 240],
+      "eat_outside": [308, 420]
+    },
+    "transport": {
+      "base": [80, 120],
+      "bicycle": [24, 36],
+      "public_transport": [80, 120],
+      "taxi": [200, 300]
+    },
+    "misc": {
+      "base": [160, 240],
+      "bachelor": [144, 216],
+      "master": [176, 264],
+      "gym": [176, 264],
+      "movies": [184, 276],
+      "friends": [192, 288]
+    },
     "average_total": [1400, 1900],
     "sources": ["https://www.numbeo.com/cost-of-living/country_result.jsp?country=Denmark"]
   },
   "sweden": {
-    "rent": [600, 1100],
-    "food": [180, 250],
-    "transport": [80, 100],
-    "misc": [150, 250],
+    "rent": {
+      "base": [600, 1100],
+      "on_campus": [420, 770],
+      "shared": [480, 880],
+      "private_hostel": [540, 990],
+      "co_living": [600, 1100],
+      "off_campus": [660, 1210],
+      "studio": [780, 1430]
+    },
+    "food": {
+      "base": [180, 250],
+      "cook_own": [108, 150],
+      "meal_plan": [144, 200],
+      "eat_outside": [252, 350]
+    },
+    "transport": {
+      "base": [80, 100],
+      "bicycle": [24, 30],
+      "public_transport": [80, 100],
+      "taxi": [200, 250]
+    },
+    "misc": {
+      "base": [150, 250],
+      "bachelor": [135, 225],
+      "master": [165, 275],
+      "gym": [165, 275],
+      "movies": [173, 288],
+      "friends": [180, 300]
+    },
     "average_total": [1100, 1700],
     "sources": ["https://www.numbeo.com/cost-of-living/country_result.jsp?country=Sweden"]
   },
   "luxembourg": {
-    "rent": [1100, 1800],
-    "food": [250, 350],
-    "transport": [80, 120],
-    "misc": [180, 280],
+    "rent": {
+      "base": [1100, 1800],
+      "on_campus": [770, 1260],
+      "shared": [880, 1440],
+      "private_hostel": [990, 1620],
+      "co_living": [1100, 1800],
+      "off_campus": [1210, 1980],
+      "studio": [1430, 2340]
+    },
+    "food": {
+      "base": [250, 350],
+      "cook_own": [150, 210],
+      "meal_plan": [200, 280],
+      "eat_outside": [350, 490]
+    },
+    "transport": {
+      "base": [80, 120],
+      "bicycle": [24, 36],
+      "public_transport": [80, 120],
+      "taxi": [200, 300]
+    },
+    "misc": {
+      "base": [180, 280],
+      "bachelor": [162, 252],
+      "master": [198, 308],
+      "gym": [198, 308],
+      "movies": [207, 322],
+      "friends": [216, 336]
+    },
     "average_total": [1600, 2200],
     "sources": ["https://www.numbeo.com/cost-of-living/country_result.jsp?country=Luxembourg"]
   },
   "russia": {
-    "rent": [300, 600],
-    "food": [100, 180],
-    "transport": [30, 50],
-    "misc": [80, 150],
+    "rent": {
+      "base": [300, 600],
+      "on_campus": [210, 420],
+      "shared": [240, 480],
+      "private_hostel": [270, 540],
+      "co_living": [300, 600],
+      "off_campus": [330, 660],
+      "studio": [390, 780]
+    },
+    "food": {
+      "base": [100, 180],
+      "cook_own": [60, 108],
+      "meal_plan": [80, 144],
+      "eat_outside": [140, 252]
+    },
+    "transport": {
+      "base": [30, 50],
+      "bicycle": [9, 15],
+      "public_transport": [30, 50],
+      "taxi": [75, 125]
+    },
+    "misc": {
+      "base": [80, 150],
+      "bachelor": [72, 135],
+      "master": [88, 165],
+      "gym": [88, 165],
+      "movies": [92, 173],
+      "friends": [96, 180]
+    },
     "average_total": [600, 1000],
     "sources": ["https://www.numbeo.com/cost-of-living/country_result.jsp?country=Russia"]
   },
   "ukraine": {
-    "rent": [200, 400],
-    "food": [80, 150],
-    "transport": [20, 40],
-    "misc": [60, 120],
+    "rent": {
+      "base": [200, 400],
+      "on_campus": [140, 280],
+      "shared": [160, 320],
+      "private_hostel": [180, 360],
+      "co_living": [200, 400],
+      "off_campus": [220, 440],
+      "studio": [260, 520]
+    },
+    "food": {
+      "base": [80, 150],
+      "cook_own": [48, 90],
+      "meal_plan": [64, 120],
+      "eat_outside": [112, 210]
+    },
+    "transport": {
+      "base": [20, 40],
+      "bicycle": [6, 12],
+      "public_transport": [20, 40],
+      "taxi": [50, 100]
+    },
+    "misc": {
+      "base": [60, 120],
+      "bachelor": [54, 108],
+      "master": [66, 132],
+      "gym": [66, 132],
+      "movies": [69, 138],
+      "friends": [72, 144]
+    },
     "average_total": [400, 700],
     "sources": ["https://www.numbeo.com/cost-of-living/country_result.jsp?country=Ukraine"]
   },
   "georgia": {
-    "rent": [250, 500],
-    "food": [100, 160],
-    "transport": [25, 45],
-    "misc": [70, 130],
+    "rent": {
+      "base": [250, 500],
+      "on_campus": [175, 350],
+      "shared": [200, 400],
+      "private_hostel": [225, 450],
+      "co_living": [250, 500],
+      "off_campus": [275, 550],
+      "studio": [325, 650]
+    },
+    "food": {
+      "base": [100, 160],
+      "cook_own": [60, 96],
+      "meal_plan": [80, 128],
+      "eat_outside": [140, 224]
+    },
+    "transport": {
+      "base": [25, 45],
+      "bicycle": [8, 14],
+      "public_transport": [25, 45],
+      "taxi": [63, 113]
+    },
+    "misc": {
+      "base": [70, 130],
+      "bachelor": [63, 117],
+      "master": [77, 143],
+      "gym": [77, 143],
+      "movies": [81, 150],
+      "friends": [84, 156]
+    },
     "average_total": [500, 850],
     "sources": ["https://www.numbeo.com/cost-of-living/country_result.jsp?country=Georgia"]
   },
   "ireland": {
-    "rent": [900, 1600],
-    "food": [200, 300],
-    "transport": [80, 120],
-    "misc": [150, 250],
+    "rent": {
+      "base": [900, 1600],
+      "on_campus": [630, 1120],
+      "shared": [720, 1280],
+      "private_hostel": [810, 1440],
+      "co_living": [900, 1600],
+      "off_campus": [990, 1760],
+      "studio": [1170, 2080]
+    },
+    "food": {
+      "base": [200, 300],
+      "cook_own": [120, 180],
+      "meal_plan": [160, 240],
+      "eat_outside": [280, 420]
+    },
+    "transport": {
+      "base": [80, 120],
+      "bicycle": [24, 36],
+      "public_transport": [80, 120],
+      "taxi": [200, 300]
+    },
+    "misc": {
+      "base": [150, 250],
+      "bachelor": [135, 225],
+      "master": [165, 275],
+      "gym": [165, 275],
+      "movies": [173, 288],
+      "friends": [180, 300]
+    },
     "average_total": [1400, 1900],
     "sources": ["https://www.numbeo.com/cost-of-living/country_result.jsp?country=Ireland"]
   },
   "usa": {
-    "rent": [1000, 2500],
-    "food": [250, 400],
-    "transport": [100, 200],
-    "misc": [200, 350],
+    "rent": {
+      "base": [1000, 2500],
+      "on_campus": [700, 1750],
+      "shared": [800, 2000],
+      "private_hostel": [900, 2250],
+      "co_living": [1000, 2500],
+      "off_campus": [1100, 2750],
+      "studio": [1300, 3250]
+    },
+    "food": {
+      "base": [250, 400],
+      "cook_own": [150, 240],
+      "meal_plan": [200, 320],
+      "eat_outside": [350, 560]
+    },
+    "transport": {
+      "base": [100, 200],
+      "bicycle": [30, 60],
+      "public_transport": [100, 200],
+      "taxi": [250, 500]
+    },
+    "misc": {
+      "base": [200, 350],
+      "bachelor": [180, 315],
+      "master": [220, 385],
+      "gym": [220, 385],
+      "movies": [230, 403],
+      "friends": [240, 420]
+    },
     "average_total": [1600, 3000],
     "sources": ["https://www.numbeo.com/cost-of-living/country_result.jsp?country=United+States"]
   },
   "canada": {
-    "rent": [800, 1800],
-    "food": [200, 350],
-    "transport": [80, 150],
-    "misc": [150, 280],
+    "rent": {
+      "base": [800, 1800],
+      "on_campus": [560, 1260],
+      "shared": [640, 1440],
+      "private_hostel": [720, 1620],
+      "co_living": [800, 1800],
+      "off_campus": [880, 1980],
+      "studio": [1040, 2340]
+    },
+    "food": {
+      "base": [200, 350],
+      "cook_own": [120, 210],
+      "meal_plan": [160, 280],
+      "eat_outside": [280, 490]
+    },
+    "transport": {
+      "base": [80, 150],
+      "bicycle": [24, 45],
+      "public_transport": [80, 150],
+      "taxi": [200, 375]
+    },
+    "misc": {
+      "base": [150, 280],
+      "bachelor": [135, 252],
+      "master": [165, 308],
+      "gym": [165, 308],
+      "movies": [173, 322],
+      "friends": [180, 336]
+    },
     "average_total": [1300, 2200],
     "sources": ["https://www.numbeo.com/cost-of-living/country_result.jsp?country=Canada"]
   },
   "australia": {
-    "rent": [900, 2000],
-    "food": [220, 380],
-    "transport": [100, 180],
-    "misc": [180, 320],
+    "rent": {
+      "base": [900, 2000],
+      "on_campus": [630, 1400],
+      "shared": [720, 1600],
+      "private_hostel": [810, 1800],
+      "co_living": [900, 2000],
+      "off_campus": [990, 2200],
+      "studio": [1170, 2600]
+    },
+    "food": {
+      "base": [220, 380],
+      "cook_own": [132, 228],
+      "meal_plan": [176, 304],
+      "eat_outside": [308, 532]
+    },
+    "transport": {
+      "base": [100, 180],
+      "bicycle": [30, 54],
+      "public_transport": [100, 180],
+      "taxi": [250, 450]
+    },
+    "misc": {
+      "base": [180, 320],
+      "bachelor": [162, 288],
+      "master": [198, 352],
+      "gym": [198, 352],
+      "movies": [207, 368],
+      "friends": [216, 384]
+    },
     "average_total": [1500, 2500],
     "sources": ["https://www.numbeo.com/cost-of-living/country_result.jsp?country=Australia"]
   },
   "new_zealand": {
-    "rent": [800, 1600],
-    "food": [200, 320],
-    "transport": [80, 140],
-    "misc": [160, 260],
+    "rent": {
+      "base": [800, 1600],
+      "on_campus": [560, 1120],
+      "shared": [640, 1280],
+      "private_hostel": [720, 1440],
+      "co_living": [800, 1600],
+      "off_campus": [880, 1760],
+      "studio": [1040, 2080]
+    },
+    "food": {
+      "base": [200, 320],
+      "cook_own": [120, 192],
+      "meal_plan": [160, 256],
+      "eat_outside": [280, 448]
+    },
+    "transport": {
+      "base": [80, 140],
+      "bicycle": [24, 42],
+      "public_transport": [80, 140],
+      "taxi": [200, 350]
+    },
+    "misc": {
+      "base": [160, 260],
+      "bachelor": [144, 234],
+      "master": [176, 286],
+      "gym": [176, 286],
+      "movies": [184, 299],
+      "friends": [192, 312]
+    },
     "average_total": [1300, 2100],
     "sources": ["https://www.numbeo.com/cost-of-living/country_result.jsp?country=New+Zealand"]
   },
   "singapore": {
-    "rent": [1200, 2500],
-    "food": [200, 400],
-    "transport": [80, 150],
-    "misc": [180, 350],
+    "rent": {
+      "base": [1200, 2500],
+      "on_campus": [840, 1750],
+      "shared": [960, 2000],
+      "private_hostel": [1080, 2250],
+      "co_living": [1200, 2500],
+      "off_campus": [1320, 2750],
+      "studio": [1560, 3250]
+    },
+    "food": {
+      "base": [200, 400],
+      "cook_own": [120, 240],
+      "meal_plan": [160, 320],
+      "eat_outside": [280, 560]
+    },
+    "transport": {
+      "base": [80, 150],
+      "bicycle": [24, 45],
+      "public_transport": [80, 150],
+      "taxi": [200, 375]
+    },
+    "misc": {
+      "base": [180, 350],
+      "bachelor": [162, 315],
+      "master": [198, 385],
+      "gym": [198, 385],
+      "movies": [207, 403],
+      "friends": [216, 420]
+    },
     "average_total": [1700, 3000],
     "sources": ["https://www.numbeo.com/cost-of-living/country_result.jsp?country=Singapore"]
   },
   "south_korea": {
-    "rent": [600, 1400],
-    "food": [180, 300],
-    "transport": [60, 100],
-    "misc": [140, 250],
+    "rent": {
+      "base": [600, 1400],
+      "on_campus": [420, 980],
+      "shared": [480, 1120],
+      "private_hostel": [540, 1260],
+      "co_living": [600, 1400],
+      "off_campus": [660, 1540],
+      "studio": [780, 1820]
+    },
+    "food": {
+      "base": [180, 300],
+      "cook_own": [108, 180],
+      "meal_plan": [144, 240],
+      "eat_outside": [252, 420]
+    },
+    "transport": {
+      "base": [60, 100],
+      "bicycle": [18, 30],
+      "public_transport": [60, 100],
+      "taxi": [150, 250]
+    },
+    "misc": {
+      "base": [140, 250],
+      "bachelor": [126, 225],
+      "master": [154, 275],
+      "gym": [154, 275],
+      "movies": [161, 288],
+      "friends": [168, 300]
+    },
     "average_total": [1000, 1800],
     "sources": ["https://www.numbeo.com/cost-of-living/country_result.jsp?country=South+Korea"]
   },
   "japan": {
-    "rent": [800, 1800],
-    "food": [200, 350],
-    "transport": [80, 150],
-    "misc": [160, 300],
+    "rent": {
+      "base": [800, 1800],
+      "on_campus": [560, 1260],
+      "shared": [640, 1440],
+      "private_hostel": [720, 1620],
+      "co_living": [800, 1800],
+      "off_campus": [880, 1980],
+      "studio": [1040, 2340]
+    },
+    "food": {
+      "base": [200, 350],
+      "cook_own": [120, 210],
+      "meal_plan": [160, 280],
+      "eat_outside": [280, 490]
+    },
+    "transport": {
+      "base": [80, 150],
+      "bicycle": [24, 45],
+      "public_transport": [80, 150],
+      "taxi": [200, 375]
+    },
+    "misc": {
+      "base": [160, 300],
+      "bachelor": [144, 270],
+      "master": [176, 330],
+      "gym": [176, 330],
+      "movies": [184, 345],
+      "friends": [192, 360]
+    },
     "average_total": [1300, 2200],
     "sources": ["https://www.numbeo.com/cost-of-living/country_result.jsp?country=Japan"]
   }
