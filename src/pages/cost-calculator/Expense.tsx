@@ -101,43 +101,7 @@ const Expense = () => {
 
 
 
-  // Helper function to calculate expense based on preference and cost range
-  const calculateCategoryExpense = (costRange: number[], preference: string) => {
-    const [minCost, maxCost] = costRange;
-    
-    // Map preferences to cost levels
-    const preferenceMapping: { [key: string]: number } = {
-      // Accommodation preferences
-      'on_campus': 0.3, // Lower cost
-      'shared': 0.4,
-      'private_hostel': 0.5,
-      'co_living': 0.6,
-      'off_campus': 0.7,
-      'studio': 0.9, // Higher cost
-      
-      // Food preferences
-      'cook_own': 0.3, // Lower cost
-      'meal_plan': 0.6,
-      'eat_outside': 0.9, // Higher cost
-      
-      // Transport preferences
-      'bicycle': 0.2, // Lower cost
-      'public_transport': 0.5,
-      'taxi': 0.9, // Higher cost
-      
-      // Leisure preferences
-      'gym': 0.3,
-      'movies': 0.6,
-      'friends': 0.8,
-      
-      // Mobile preferences
-      'basic': 0.3,
-      'premium': 0.8
-    };
-    
-    const multiplier = preferenceMapping[preference] || 0.5; // Default to middle
-    return Math.round(minCost + (maxCost - minCost) * multiplier);
-  };
+
 
   useEffect(() => {
     const fetchExpenses = async () => {
