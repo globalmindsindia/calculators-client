@@ -1,0 +1,130 @@
+BACKEND PRODUCTION DEPLOYMENT GUIDE
+=====================================
+
+OVERVIEW:
+This guide covers the complete process for deploying backend changes to production
+for the Calculator API service running on srv810066.hstgr.cloud
+
+PREREQUISITES:
+- SSH access to production server (srv810066.hstgr.cloud)
+- Root privileges or sudo access
+- Backend changes committed and pushed to repository
+
+DEPLOYMENT STEPS:
+================
+
+1. SSH INTO PRODUCTION SERVER
+   ssh root@srv810066.hstgr.cloud
+
+2. NAVIGATE TO PROJECT DIRECTORY
+   cd /home/www.globalmindsindia.com/
+   cd api.calculator.globalmindsindia.com/
+   cd calculators-server/
+
+3. PULL LATEST CHANGES (if using git)
+   git fetch origin main
+   git pull origin main
+   # OR git pull origin master (depending on your main branch name)
+
+4. ACTIVATE VIRTUAL ENVIRONMENT (if needed for dependencies)
+   source venv/bin/activate
+
+5. INSTALL/UPDATE DEPENDENCIES (if requirements changed)
+   pip install -r requirements.txt
+
+6. RELOAD SYSTEMD DAEMON
+   sudo systemctl daemon-reload
+
+7. RESTART THE SERVICE
+   sudo systemctl restart calculator-api.service
+
+8. VERIFY SERVICE STATUS
+   sudo systemctl status calculator-api.service
+
+EXPECTED OUTPUT AFTER SUCCESSFUL DEPLOYMENT:
+===========================================
+● calculator-api.service - Calculator Backend API
+     Loaded: loaded (/etc/systemd/system/calculator-api.service; enabled; preset: disabled)
+     Active: active (running) since [TIMESTAMP]
+   Main PID: [PID] (gunicorn)
+      Tasks: 4 (limit: 100228)
+     Memory: ~158M
+        CPU: ~3s
+     CGroup: /system.slice/calculator-api.service
+             ├─[PID] gunicorn master process
+             ├─[PID] gunicorn worker
+             ├─[PID] gunicorn worker  
+             └─[PID] gunicorn worker
+
+SERVICE DETAILS:
+===============
+- Service Name: calculator-api.service
+- Service File Location: /etc/systemd/system/calculator-api.service
+- Application Server: Gunicorn
+- Listening Port: 127.0.0.1:8001
+- Worker Processes: 3 (sync workers)
+- Virtual Environment: /home/www.globalmindsindia.com/api.calculator.globalmindsindia.com/calculators-server/venv/
+
+TROUBLESHOOTING:
+===============
+
+IF SERVICE FAILS TO START:
+- Check service logs: sudo journalctl -u calculator-api.service -f
+- Check application logs in the project directory
+- Verify virtual environment is working: source venv/bin/activate && python --version
+- Check if port 8001 is available: netstat -tlnp | grep 8001
+
+IF SERVICE IS RUNNING BUT NOT RESPONDING:
+- Check if gunicorn processes are running: ps aux | grep gunicorn
+- Test local connection: curl http://127.0.0.1:8001/health (if health endpoint exists)
+- Check nginx configuration (if using reverse proxy)
+
+COMMON ISSUES:
+- Permission issues: Ensure proper file ownership
+- Port conflicts: Verify no other service is using port 8001
+- Python path issues: Ensure virtual environment is properly activated
+- Missing dependencies: Run pip install -r requirements.txt
+
+ROLLBACK PROCEDURE:
+==================
+If deployment fails:
+1. git checkout [previous-commit-hash]
+2. sudo systemctl restart calculator-api.service
+3. sudo systemctl status calculator-api.service
+
+ADDITIONAL COMMANDS:
+===================
+- View service logs: sudo journalctl -u calculator-api.service -n 50
+- Follow live logs: sudo journalctl -u calculator-api.service -f
+- Stop service: sudo systemctl stop calculator-api.service
+- Start service: sudo systemctl start calculator-api.service
+- Enable service on boot: sudo systemctl enable calculator-api.service
+- Disable service on boot: sudo systemctl disable calculator-api.service
+
+QUICK DEPLOYMENT SCRIPT:
+========================
+You can create a script with these commands:
+
+#!/bin/bash
+cd /home/www.globalmindsindia.com/api.calculator.globalmindsindia.com/calculators-server/
+git pull origin main
+sudo systemctl daemon-reload
+sudo systemctl restart calculator-api.service
+sudo systemctl status calculator-api.service
+
+NOTES:
+======
+- Always test changes in staging environment first
+- Keep backups of working versions
+- Monitor service status after deployment
+- Document any configuration changes
+- Update this guide if deployment process changes
+
+CONTACT INFO:
+============
+Server: srv810066.hstgr.cloud
+Project Path: /home/www.globalmindsindia.com/api.calculator.globalmindsindia.com/calculators-server/
+Service: calculator-api.service
+Port: 8001 (local)
+
+Last Updated: January 2026
